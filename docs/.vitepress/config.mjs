@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   title: "Sanrachna",
-  base: '/sanrachna-research/',
+  base: '/sanrachna-docs/',
   description: "Privacy-First AI Productivity Platform",
   themeConfig: {
     search: {
@@ -22,7 +22,7 @@ export default defineConfig({
       }
     ],
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/ArunSingh-07/sanrachna-research' }
+      { icon: 'github', link: 'https://github.com/ArunSingh-07/sanrachna-docs' }
     ],
     footer: {
       message: 'Released under the MIT License.',
