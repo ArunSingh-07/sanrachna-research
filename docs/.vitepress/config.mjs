@@ -2,7 +2,6 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   title: "Sanrachna",
-  base: '/sanrachna-docs/',
   description: "Privacy-First AI Productivity Platform",
   themeConfig: {
     search: {
