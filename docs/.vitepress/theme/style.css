@@ -33,3 +33,56 @@
 html.dark .VPFeature:hover {
   box-shadow: 0 4px 14px rgba(255, 255, 255, 0.05);
 }
+
+/* --- Mobile Responsiveness Fixes --- */
+
+/* Ensure long headers wrap correctly on very small screens */
+h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+@media (max-width: 640px) {
+  :root {
+    /* Slightly reduce base font size for mobile if needed, but let's focus on headers */
+  }
+  
+  /* Reduce H1 size on mobile to prevent extreme overflow */
+  .vp-doc h1 {
+    font-size: 1.75rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  .vp-doc h2 {
+    font-size: 1.5rem !important;
+  }
+  
+  /* Ensure the content container doesn't have excessive padding on tiny screens */
+  .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
+/* Force the main layout to be more fluid on narrow screens */
+@media (max-width: 375px) {
+  .VPHome {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  
+  .text {
+    word-break: break-word;
+  }
+}
+
+/* Global overflow protection */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.VPContent {
+  overflow-x: hidden;
+}
