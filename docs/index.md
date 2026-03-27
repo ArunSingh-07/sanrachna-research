@@ -3,21 +3,21 @@ layout: home
 
 hero:
   name: "Sanrachna"
-  text: "Privacy-First AI Productivity Platform"
-  tagline: "Offline-first, edge-inference AI architecture research project bridging data sovereignty with dynamic intelligence."
+  text: "Local-First AI Productivity Platform"
+  tagline: "An architectural research project focused on offline-only AI inference and privacy-preserving productivity tools."
   actions:
     - theme: brand
+      text: Technical Research Report
+      link: /research/technical-report
+    - theme: alt
       text: Research Proposal
       link: /research/proposal
-    - theme: alt
-      text: Architecture Details
-      link: /research/architecture
 
 features:
   - title: 🔒 Local AI Execution
-    details: Powered by Llama 3 on the local desktop, ensuring complete data sovereignty and zero reliance on cloud APIs.
+    details: Models like Llama 3 run on the user's desktop hardware, removing the need for third-party cloud APIs.
   - title: ⚡ Dynamic UI Generation
-    details: Zero-shot schema generation dynamically creates React components on-demand using sandboxed JS contexts.
+    details: Local LLMs generate functional application schemas at runtime, which are then rendered into secure UI components.
   - title: 📡 Offline-First Data
-    details: Decentralized event-sourcing with local SQLite and vector clocks for robust offline capabilities.
+    details: Synchronization using event-sourcing with local SQLite and vector clocks for reliable offline data management.
 ---

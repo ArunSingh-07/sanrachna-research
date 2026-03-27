@@ -9,12 +9,14 @@ export default defineConfig({
     },
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Research', link: '/research/proposal' }
+      { text: 'Technical Report', link: '/research/technical-report' },
+      { text: 'Proposal', link: '/research/proposal' }
     ],
     sidebar: [
       {
         text: 'Research Documentation',
         items: [
+          { text: 'Technical Research Report', link: '/research/technical-report' },
           { text: 'Research Proposal', link: '/research/proposal' },
           { text: 'Architecture & Methodology', link: '/research/architecture' }
         ]

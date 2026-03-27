@@ -1,41 +1,43 @@
 # Research Proposal: Privacy-First, Offline-Capable AI Productivity Platform
 
+> [!NOTE]
+> **This document has been superseded.** For comprehensive documentation, please refer to the [**Technical Research Report**](/research/technical-report).
+
 ## 1. Abstract
-The rapid adoption of Large Language Models (LLMs) has predominantly relied on cloud-based infrastructures, raising significant concerns regarding data privacy, operational latency, and availability in disconnected environments. This research proposes the development and evaluation of a novel privacy-first, offline-capable AI productivity platform. By shifting the AI inference engine entirely to the edge (user's local PC) and utilizing a hybrid architecture combining Rust, Tauri, and local LLMs (e.g., Llama 3), the system aims to dynamically generate user interfaces and manage complex user data without transmitting sensitive information to external servers. The project will investigate the feasibility, performance trade-offs, and user experience implications of a local-first AI ecosystem.
+While Large Language Models (LLMs) are widely used, most current implementations rely on cloud infrastructure. This creates issues with data privacy, latency, and reliability in offline environments. This project proposes a privacy-first, offline-capable AI productivity platform. By moving the AI inference engine to the edge (the user's local hardware) and using a hybrid architecture of Rust, Tauri, and local LLMs like Llama 3, the system generates user interfaces and manages data without sending information to external servers. This study examines the performance trade-offs and user experience of a local-first AI system.
 
-## 2. Introduction and Motivation
-Currently, AI productivity tools (such as Notion AI or ChatGPT) mandate an active internet connection, forcing users to surrender personal data (tasks, habits, financial logs) to third-party servers. While this enables powerful cloud inference, it compromises user privacy and offline operability.
+## 2. Research Background
+Most AI productivity tools, such as Notion AI or ChatGPT, require an active internet connection and the transfer of personal data—including tasks, habits, and logs—to third-party servers. While cloud-based models are powerful, they compromise privacy and fail when offline.
 
-This research addresses the challenge of building a fully decentralized, local-first AI system that retains the generative capabilities of cloud-based models while running strictly on consumer hardware. We explore a client-heavy architecture where the desktop acts as the primary "AI Brain" hosting models locally, and mobile devices operate as thin clients synchronizing via a decentralized, event-based protocol.
+This project addresses the challenge of building a decentralized, local-first AI system that retains generative capabilities while running on consumer hardware. The architecture uses a desktop as the primary host for models, while mobile devices act as clients that sync via a decentralized, event-based protocol.
 
-## 3. Research Objectives
-1. **Local-First Generative UI:** Investigate the capability of locally hosted LLMs to dynamically generate deterministic application schemas and UI structures (e.g., custom trackers, planners) in zero-shot environments.
-2. **Edge Inference Optimization:** Benchmark the performance, power consumption, and latency limitations of running models like Llama3 concurrently with desktop application runtimes using Rust and Tauri.
-3. **Decentralized Synchronization:** Design and evaluate an event-sourced synchronization protocol utilizing local SQLite databases and PostgreSQL, ensuring eventual consistency across devices without centralized data processing.
-4. **Privacy-Preserving Web Search:** Prototype an architecture where the AI can optionally query the web without exposing the user's local context or identity, strictly as an explicitly authorized (opt-in) operation.
+## 3. Objectives
+1. **Local Generative UI:** Test the ability of local LLMs to generate functional application schemas and UI structures (e.g., custom trackers) in zero-shot environments.
+2. **Edge Optimization:** Benchmark the performance and latency of running Llama 3 models concurrently with desktop application runtimes using Rust and Tauri.
+3. **Decentralized Sync:** Evaluate an event-sourced synchronization protocol using local SQLite and PostgreSQL to ensure consistency across devices without central data processing.
+4. **Isolated Web Search:** Prototype an architecture where the AI can query the web without exposing the user's local context or identity.
 
-## 4. Proposed Architecture and Methodology
-The system architecture departs from traditional client-server models by instantiating the desktop application as a local server and AI host. 
+## 4. Architecture and Methodology
+The system departs from traditional client-server models by using the desktop application as both a local server and an AI host.
 
 ### 4.1. Core Engine (Rust + Tauri)
-The overarching runtime leverages Tauri and a Rust-based core engine, mitigating the memory overhead typical of Electron-based applications. Rust handles system-level operations, database connections, and IPC routing to the React-based frontend.
+The runtime uses Tauri and a Rust-based core to minimize memory overhead. Rust manages system-level operations, database connections, and IPC routing to the React frontend.
 
 ### 4.2. Local AI Pipeline
-Integration with `Ollama` and `Whisper.cpp` enables local text and voice processing. The engine will constrain the LLM's outputs strictly to JSON schemas defining dynamic applications. These schemas dictate the rendering of components (e.g., `DynamicForm.tsx`) on the React frontend.
+Integration with Ollama and Whisper.cpp allows for local text and voice processing. The engine constrains model outputs to JSON schemas, which are then rendered as components in the React frontend.
 
-### 4.3. Data Storage and Sync Layer
-All primary state is persisted in a local SQLite database using an event-sourcing paradigm (`events` table with operations and timestamps). A Rust-based sync server (Axum + PostgreSQL) will facilitate the replication of these events across the user's devices based on asynchronous delta-updates.
+### 4.3. Data and Sync Layer
+Primary state is stored in a local SQLite database using an event-sourcing model. A Rust-based sync server (Axum + PostgreSQL) facilitates the replication of these events across devices through delta-updates.
 
-## 5. Expected Contributions
-1. **Architectural Blueprint:** A verified, open-source architectural blueprint for building offline-first, AI-driven applications.
-2. **Generative UI Framework:** A robust methodology for parsing LLM-generated schemas into secure, sandboxed UI components inside a desktop runtime.
-3. **Performance Benchmarks:** Empirical data on resource utilization, throughput, and latency for local LLMs serving as the backbone for productivity software on consumer-level hardware.
+## 5. Expected Results
+1. **Architectural Blueprint:** An open-source model for building offline-first, AI-driven applications.
+2. **UI Framework:** A method for parsing model-generated schemas into secure UI components within a desktop runtime.
+3. **Performance Data:** Empirical benchmarks on resource use and latency for local LLMs on consumer-level hardware.
 
-## 6. Project Timeline
-
-* **Phase 1 (Months 1-2):** Development of the Rust core engine, local SQLite schema, and baseline Tauri desktop application.
-* **Phase 2 (Months 3-4):** Integration of Ollama, implementation of the Dynamic UI Renderer, and prompt engineering for deterministic schema generation.
-* **Phase 3 (Months 5-6):** Development of the mobile client (Kotlin) and the Rust/Axum synchronization server; rigorous benchmarking.
+## 6. Timeline
+* **Phase 1 (Months 1-2):** Development of the Rust core, local SQLite storage, and baseline Tauri application.
+* **Phase 2 (Months 3-4):** Integration of Ollama and implementation of the Dynamic UI Renderer.
+* **Phase 3 (Months 5-6):** Mobile client development and sync server implementation; final benchmarking.
 
 ## 7. Conclusion
-This project pioneers a shift away from cloud-dependent AI paradigms. By proving that advanced, dynamic productivity tools can be driven entirely by offline models, this research contributes to the broader academic discourse on data sovereignty, edge computing, and privacy-preserving artificial intelligence.
+This project moves away from cloud-dependent AI. By demonstrating that advanced productivity tools can run on offline models, this research contributes to the discussion on data sovereignty and privacy-preserving AI.

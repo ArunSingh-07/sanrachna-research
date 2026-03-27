@@ -1,20 +1,39 @@
 # Sanrachna: Research & Architecture Documentation
 
-This repository contains the comprehensive research documentation for **Sanrachna**, a privacy-first, offline-capable AI productivity platform.
+This repository contains the research documentation for **Sanrachna**, a privacy-first, offline-capable AI productivity platform.
 
 ### [🚀 View the Live Research Site](https://arunsingh-07.github.io/sanrachna-research/)
 
 ## Project Overview
-Sanrachna is an architecture transition from cloud-dependent AI to edge-based local inference. It focuses on several key research areas:
-*   **Privacy-First:** All user data remains local, eliminating the need for cloud-based storage.
-*   **Local AI Brain:** Using locally hosted Large Language Models (LLMs) to perform complex reasoning tasks on consumer hardware.
-*   **Generative UI Architecture:** Dynamically generating user interfaces from AI-defined JSON schemas.
-*   **Offline-First:** Event-sourced synchronization that functions without a persistent internet connection.
+Sanrachna is an architectural study on moving AI inference from the cloud to local edge devices.
+
+```text
+       [ Mobile App ]        [ Desktop App ]
+             |                      |
+             v                      v
+      +-----------------------------------------+
+      |      Decentralized Sync Protocol        |
+      |   (Event Logs & Lamport Timestamps)     |
+      +--------------------+--------------------+
+                           |
+                           v
+      +-----------------------------------------+
+      |           LOCAL AI INFERENCE            |
+      |      (Llama 3 / Mistral via Ollama)     |
+      +-----------------------------------------+
+```
+
+The project focuses on several key research areas:
+*   **Privacy-First:** User data remains local, removing the need for cloud-based storage.
+*   **Local Inference:** Using Large Language Models (LLMs) to perform complex reasoning on standard consumer hardware.
+*   **UI Synthesis:** Dynamically generating user interfaces through a schema-driven approach.
+*   **Offline-First:** Event-sourced synchronization that works without a constant internet connection.
 
 ## Documentation Contents
 This repository is organized as a **VitePress** documentation site:
-*   **[Research Proposal](docs/research/proposal.md):** An overview of the abstract, motivation, and research objectives.
-*   **[Architecture & Methodology](docs/research/architecture.md):** A technical deep-dive into the core engine, local AI pipeline, and synchronization protocol.
+*   **[Technical Research Report](docs/research/technical-report.md):** The primary 10-section research document detailing the system architecture, evaluation, and future work.
+*   **[Research Proposal](docs/research/proposal.md):** Abstract, objectives, and research methodology.
+*   **[Architecture Details](docs/research/architecture.md):** A technical deep-dive into the core engine, AI pipeline, and sync protocols.
 
 ## Repository Structure
 ```text
@@ -29,4 +48,4 @@ This repository is organized as a **VitePress** documentation site:
 ```
 
 ---
-*Sanrachna is an open-source research initiative focused on data sovereignty and local-first AI.*
+*Sanrachna is a research project focused on data privacy and local-first AI.*
